@@ -1,5 +1,6 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 import { APP_CONFIG } from "@/config/app";
 
@@ -17,6 +18,11 @@ export function SiteHeader(): ReactElement {
           <Link href="/api/health" className="hover:text-zinc-950">
             Health
           </Link>
+          <SignedOut>
+            <SignInButton><button type="button">Sign in</button></SignInButton>
+            <SignUpButton><button type="button" className="text-zinc-950">Create account</button></SignUpButton>
+          </SignedOut>
+          <SignedIn><UserButton /></SignedIn>
         </nav>
       </div>
     </header>

@@ -4,6 +4,19 @@ Multi-tenant workflow automation platform. This repository currently contains th
 
 It does **not** yet include authentication, the workflow engine, AI execution, or billing.
 
+## Authentication and organizations
+
+FlowForge uses Clerk for Google OAuth, email verification-code sign-in, sessions,
+organization switching, and invitation delivery. Configure those providers plus the
+`org:owner`, `org:admin`, and `org:member` roles in Clerk before deployment.
+
+Add `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, and
+`CLERK_WEBHOOK_SIGNING_SECRET` to the deployment environment. Point Clerk's webhook
+endpoint at `/api/webhooks/clerk` and enable user, organization, and organization
+membership lifecycle events. PostgreSQL stores the application-side authorization
+projection; a member is allowed to use a tenant only when its active Clerk role matches
+the locally synchronized membership.
+
 ## Tech stack
 
 - Next.js (App Router) and TypeScript

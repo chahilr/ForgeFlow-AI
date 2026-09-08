@@ -10,3 +10,12 @@ export const CreateOrganizationSchema = z.object({
 });
 
 export type CreateOrganizationInput = z.infer<typeof CreateOrganizationSchema>;
+
+export const InviteOrganizationMemberSchema = z.object({
+  email: z.email(),
+  role: z.enum(["admin", "member"]),
+});
+
+export const UpdateOrganizationMemberSchema = z.object({
+  role: z.enum(["admin", "member"]),
+});

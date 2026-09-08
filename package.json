@@ -20,6 +20,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.9.1",
     "bullmq": "^6.3.4",
     "drizzle-orm": "^0.45.2",
     "ioredis": "^6.0.0",
@@ -27,6 +28,7 @@
     "postgres": "^3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "svix": "^2.3.0",
     "zod": "^4.5.4"
   },
   "devDependencies": {
